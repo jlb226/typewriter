@@ -1,0 +1,96 @@
+<html>
+<head>
+
+<style type="text/css">
+
+.blink {
+-webkit-animation: blink 1s linear infinite;
+-moz-animation: blink 1s linear infinite;
+-ms-animation: blink 1s linear infinite;
+-o-animation: blink 1s linear infinite;
+animation: blink 1s linear infinite;
+}
+@-webkit-keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 1; }
+50.01% { opacity: 0; }
+100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 1; }
+50.01% { opacity: 0; }
+100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 1; }
+50.01% { opacity: 0; }
+100% { opacity: 0; }
+}
+@-o-keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 1; }
+50.01% { opacity: 0; }
+100% { opacity: 0; }
+}
+@keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 1; }
+50.01% { opacity: 0; }
+100% { opacity: 0; }
+}
+
+</style>
+
+</head>
+
+<body onload="typeWriter()">
+
+<script>
+var i = 0;
+var j = -1;
+var k = 0;
+var txt1 = Array.from('This is the first line');
+var txt2 = Array.from('This is the second line');
+var txt3 = Array.from('This is the third line');
+var speed = 100;
+
+function typeWriter() {
+if (i <= txt1.length && i > 0 && k == 1) {
+document.getElementById("typewriter").innerHTML = txt1.slice(0, i).join('');
+i=i+j;
+setTimeout(typeWriter, speed);
+} else if (i <= txt2.length && i > 0 && k == 2) {
+document.getElementById("typewriter").innerHTML = txt2.slice(0, i).join('');
+i=i+j;
+setTimeout(typeWriter, speed);
+} else if (i <= txt3.length && i > 0 && k == 3) {
+document.getElementById("typewriter").innerHTML = txt3.slice(0, i).join('');
+i=i+j;
+setTimeout(typeWriter, speed);
+}else if (i == 0){
+document.getElementById("typewriter").innerHTML = '';
+j = -1*j;
+i=i+j;
+k++;
+setTimeout(typeWriter, speed+120);
+}else if (i > txt1.length && k == 1){
+j = -1*j;
+i=i+j;
+setTimeout(typeWriter, speed+120);
+}else if (i > txt2.length && k == 2){
+j = -1*j;
+i=i+j;
+setTimeout(typeWriter, speed+120);
+}
+}
+</script>
+
+
+<div>
+<span id="typewriter"></span><span class="blink"> | </span>
+</div>
+
+</body>
+</html>
